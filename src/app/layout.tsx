@@ -1,3 +1,5 @@
+import Footer from '@/components/global/footer';
+import Navbar from '@/components/global/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -26,7 +28,7 @@ export default function RootLayout({
     <html lang='tr-TR' suppressHydrationWarning>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans antialiased',
+          'min-h-screen bg-background font-sans antialiased flex flex-col',
           fontSans.variable
         )}
       >
@@ -36,8 +38,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Button>sa</Button>
-          {children}
+          <Navbar className='flex items-center justify-center' />
+          <div className='min-h-screen flex-1 mt-32 mx-auto max-w-2xl px-4'>
+            {children}
+          </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
