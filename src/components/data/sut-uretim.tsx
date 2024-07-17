@@ -6,17 +6,38 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 
+import React from 'react';
 import {
   Bar,
   BarChart,
   CartesianGrid,
+  Label,
   Legend,
+  Pie,
+  PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+  Sector,
   Text,
   Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
+import { PieSectorDataItem } from 'recharts/types/polar/Pie';
 
 const sutUretimData = [
   {
@@ -76,7 +97,7 @@ export function ToplamSutUretimMiktari() {
           axisLine={false}
         />
         <ChartTooltip content={<ChartTooltipContent />} />
-        <Bar dataKey='toplam' fill='var(--color-toplam)' radius={4} />
+        <Bar dataKey='toplam' fill='hsl(var(--chart-1))' radius={4} />
       </BarChart>
     </ChartContainer>
   );
@@ -95,11 +116,68 @@ export function KarsilastirmaliSutUretimMiktari() {
         <YAxis />
         <Tooltip />
         <Legend />
-        <Bar dataKey='inek' stackId='a' fill='#8884d8' />
-        <Bar dataKey='manda' stackId='a' fill='#82ca9d' />
-        <Bar dataKey='koyun' stackId='a' fill='#ffc658' />
-        <Bar dataKey='keci' stackId='a' fill='#ffc658' />
+        <Bar dataKey='inek' stackId='a' fill='hsl(var(--chart-1))' />
+        <Bar dataKey='manda' stackId='a' fill='hsl(var(--chart-2))' />
+        <Bar dataKey='koyun' stackId='a' fill='hsl(var(--chart-3))' />
+        <Bar dataKey='keci' stackId='a' fill='hsl(var(--chart-4))' />
       </BarChart>
     </ChartContainer>
+  );
+}
+
+export function KarsilastirmaliSutUretimMiktari2() {
+  return (
+    <ChartContainer
+      config={SutUretimToplam}
+      className='mx-auto aspect-square max-h-[250px]'
+    >
+      <PieChart>
+        <ChartTooltip
+          cursor={false}
+          content={<ChartTooltipContent hideLabel />}
+        />
+        <Pie
+          data={sutUretimData}
+          dataKey='inek'
+          nameKey='yil'
+          innerRadius={60}
+          strokeWidth={5}
+          activeIndex={0}
+          activeShape={({ outerRadius = 0, ...props }: PieSectorDataItem) => (
+            <Sector {...props} outerRadius={outerRadius + 10} />
+          )}
+        />
+      </PieChart>
+    </ChartContainer>
+  );
+}
+
+export function Tablo() {
+  return (
+    <Table className='table-auto'>
+      <TableCaption>Süt Üretim Miktarları Tablosu</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Yıl</TableHead>
+          <TableHead>Toplam</TableHead>
+          <TableHead>İnek</TableHead>
+          <TableHead>Manda</TableHead>
+          <TableHead>Koyun</TableHead>
+          <TableHead>Keçi</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {sutUretimData.map((data) => (
+          <TableRow key={data.yil}>
+            <TableCell className='font-medium'>{data.yil}</TableCell>
+            <TableCell>{data.toplam}</TableCell>
+            <TableCell>{data.inek}</TableCell>
+            <TableCell>{data.manda}</TableCell>
+            <TableCell>{data.koyun}</TableCell>
+            <TableCell>{data.keci}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }

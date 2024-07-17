@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Süt Üretimi İstatistikleri
 
-## Getting Started
+02 Mayıs 2024 yayın tarihli [Çiğ Süt Üretim İstatistikleri, 2023](https://data.tuik.gov.tr/Bulten/Index?p=Cig-Sut-Uretim-Istatistikleri-2023-53542/) adlı TUİK adresinden aldığım verilerin görselleştirilmesini yapmaya çalıştım.
 
-First, run the development server:
+## Proje içerisinde:
+
+- 2020-2023 arası süt üretimi verileri
+- 2001-2023 arası canlı hayvan sayıları
+- 2001-2023 arası üretilen hayvansal ürün miktarı
+- 2001-2023 arası kesilen hayvan sayısı
+- 2001-2023 arası et üretim miktarı
+
+verileri yer almaktadır. Veri düzenleme ve görselleştirme işlemi uzun sürdüğü için projenin tamamlanması en az bir hafta sürecektir.
+
+
+## Projede kullanılan teknolojiler:
+
+- React
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Recharts
+- shadcn/ui
+
+> Proje dosya yapısını tam olarak oturtamadım zamanla iyileştirilecektir.
+
+
+#### Çalıştırmak İçin
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm i       # ya da yarn install
+npm run dev # ya da yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ardından tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
