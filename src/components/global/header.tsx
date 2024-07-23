@@ -101,7 +101,7 @@ function ToplamHayvanSayisi() {
       <BarChart
         accessibilityLayer
         data={canliHayvanData}
-        title='Süt Üretim Miktarları'
+        title='Toplam Hayvan Sayıları'
       >
         <CartesianGrid vertical={false} />
         <XAxis
