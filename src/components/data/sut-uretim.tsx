@@ -22,22 +22,11 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Label,
   Legend,
-  Pie,
-  PieChart,
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-  Sector,
-  Text,
   Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
-import { PieSectorDataItem } from 'recharts/types/polar/Pie';
 
 const sutUretimData = [
   {
@@ -125,32 +114,7 @@ export function KarsilastirmaliSutUretimMiktari() {
   );
 }
 
-export function KarsilastirmaliSutUretimMiktari2() {
-  return (
-    <ChartContainer
-      config={SutUretimToplam}
-      className='mx-auto aspect-square max-h-[250px]'
-    >
-      <PieChart>
-        <ChartTooltip
-          cursor={false}
-          content={<ChartTooltipContent hideLabel />}
-        />
-        <Pie
-          data={sutUretimData}
-          dataKey='inek'
-          nameKey='yil'
-          innerRadius={60}
-          strokeWidth={5}
-          activeIndex={0}
-          activeShape={({ outerRadius = 0, ...props }: PieSectorDataItem) => (
-            <Sector {...props} outerRadius={outerRadius + 10} />
-          )}
-        />
-      </PieChart>
-    </ChartContainer>
-  );
-}
+
 
 export function Tablo() {
   return (

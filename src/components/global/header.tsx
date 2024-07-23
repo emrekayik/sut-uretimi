@@ -1,10 +1,16 @@
-import { cn } from '@/lib/utils';
+'use client';
 
-import { Clipboard, Milk } from 'lucide-react';
-import React from 'react';
+import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart';
+import { Skeleton } from '@/components/ui/skeleton';
+import { canliHayvanData, sutUretimData } from '@/datas/data';
 
-import { ToplamSutUretimMiktari } from '../data/sut-uretim';
-import { BentoGrid, BentoGridItem } from '../ui/bento-grid';
+import { Milk, PawPrint } from 'lucide-react';
+import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
 export function Header() {
   return (
@@ -23,9 +29,7 @@ export function Header() {
     </BentoGrid>
   );
 }
-const Skeleton = () => (
-  <div className='flex flex-1 w-full h-full min-h-[6rem] rounded-xl   dark:bg-dot-white/[0.2] bg-dot-black/[0.2] [mask-image:radial-gradient(ellipse_at_center,white,transparent)]  border border-transparent dark:border-white/[0.2] bg-neutral-100 dark:bg-black'></div>
-);
+
 const items = [
   {
     title: 'Süt Üretim Miktarları',
@@ -34,6 +38,14 @@ const items = [
     className: 'md:col-span-2',
     icon: <Milk className='h-4 w-4 text-neutral-500' />,
     link: '/veriler/sut-uretim',
+  },
+  {
+    title: 'Canlı Hayvan Sayıları',
+    description: '2001-2023 arası canlı hayvan sayıları',
+    header: <ToplamHayvanSayisi />,
+    className: 'md:col-span-1',
+    icon: <PawPrint className='h-4 w-4 text-neutral-500' />,
+    link: '/veriler/canli-hayvan',
   },
   /*
   {
@@ -60,3 +72,47 @@ const items = [
   },
   */
 ];
+
+function ToplamSutUretimMiktari() {
+  return (
+    <ChartContainer config={{}} className='min-h-[200px] w-full'>
+      <BarChart
+        accessibilityLayer
+        data={sutUretimData}
+        title='Süt Üretim Miktarları'
+      >
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey='yil'
+          tickLine={false}
+          tickMargin={10}
+          axisLine={false}
+        />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Bar dataKey='toplam' fill='hsl(var(--chart-1))' radius={4} />
+      </BarChart>
+    </ChartContainer>
+  );
+}
+
+function ToplamHayvanSayisi() {
+  return (
+    <ChartContainer config={{}} className='min-h-[200px] w-full'>
+      <BarChart
+        accessibilityLayer
+        data={canliHayvanData}
+        title='Süt Üretim Miktarları'
+      >
+        <CartesianGrid vertical={false} />
+        <XAxis
+          dataKey='Yıl'
+          tickLine={false}
+          tickMargin={10}
+          axisLine={false}
+        />
+        <ChartTooltip content={<ChartTooltipContent />} />
+        <Bar dataKey='Toplam' fill='hsl(var(--chart-1))' radius={4} />
+      </BarChart>
+    </ChartContainer>
+  );
+}

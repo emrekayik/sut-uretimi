@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='tr-TR' suppressHydrationWarning>
+    <html lang='tr-TR' className='scroll-smooth'>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased flex flex-col',
@@ -39,7 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar className='flex items-center justify-center' />
-          <div className='min-h-screen flex-1 mt-32 mx-auto max-w-2xl px-4'>
+          <div className='min-h-screen flex-1 mt-32 mx-auto sm:max-w-2xl max-w-md px-4'>
             {children}
           </div>
           <Footer />

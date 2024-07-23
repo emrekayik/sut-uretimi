@@ -46,16 +46,16 @@ export default function Navbar({ className }: { className?: string }) {
               <HoveredLink href='/veriler/sut-uretim'>
                 Süt Üretim Miktarları
               </HoveredLink>
+              <HoveredLink href='/veriler/canli-hayvan'>
+                Canlı Hayvan Sayıları
+              </HoveredLink>
               <HoveredLink href='/veriler/et-uretim'>
                 Et Üretim Miktarları
               </HoveredLink>
               <HoveredLink href='/veriler/hayvansal-urun'>
                 Hayvansal Ürün Miktarları
               </HoveredLink>
-              <HoveredLink href='/veriler/canli-hayvanlar'>
-                Canlı Hayvan Sayıları
-              </HoveredLink>
-              <HoveredLink href='/veriler/kesilen-hayvanlar'>
+              <HoveredLink href='/veriler/kesilen-hayvan'>
                 Kesilen Hayvan Sayıları
               </HoveredLink>
             </div>
@@ -63,6 +63,7 @@ export default function Navbar({ className }: { className?: string }) {
           <MenuItem setActive={setActive} active={active} item='Hakkında'>
             <div className='flex flex-col space-y-4 text-sm'>
               <HoveredLink href='/hakkinda'>Proje Hakkında</HoveredLink>
+              <HoveredLink href='/hakkinda/veri'>Veri Hakkında</HoveredLink>
             </div>
           </MenuItem>
         </Menu>
